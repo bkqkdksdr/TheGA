@@ -1,0 +1,193 @@
+
+/*******************第1次分析开始***********************/
+
+源程序为
+
+while (a3+15)>0xa do if x2 = 07 then while y<z do y = x * y / z; c=b*c+d;$
+过滤之后的程序:
+while (a3+15)>0xa do if x2 = 07 then while y<z do y = x * y / z; c=b*c+d;$
+L1:
+   t1=a3+15
+   if t1>10 goto L2 
+   goto L0
+L2:
+   if x2=7 goto L3 
+   goto L1
+L3:
+   if y<z goto L4 
+   goto L1
+L4:
+   t2=x*y
+   t3=t2/z
+   y=t3
+   goto L3
+
+L0:	
+   t4=b*c
+   t5=t4+d
+   c=t5
+
+The result is true!!!
+/*******************第1次分析结束***********************/
+
+/*******************第2次分析开始***********************/
+
+源程序为
+
+while (a3+15)>0xa do if x2 = 07 then while y<z do y = x * y / z;$
+过滤之后的程序:
+while (a3+15)>0xa do if x2 = 07 then while y<z do y = x * y / z;$
+L1:
+   t1=a3+15
+   if t1>10 goto L2 
+   goto L0
+L2:
+   if x2=7 goto L3 
+   goto L1
+L3:
+   if y<z goto L4 
+   goto L1
+L4:
+   t2=x*y
+   t3=t2/z
+   y=t3
+   goto L3
+
+L0:	
+
+The result is true!!!
+/*******************第2次分析结束***********************/
+
+/*******************第3次分析开始***********************/
+
+源程序为
+
+while while if else$
+过滤之后的程序:
+while while if else$
+L1:
+
+The result is false!!
+/*******************第3次分析结束***********************/
+
+/*******************第4次分析开始***********************/
+
+源程序为
+
+while (a3+15)>0xa do if x2 = 07 then while y<z do y = x * y / z$
+过滤之后的程序:
+while (a3+15)>0xa do if x2 = 07 then while y<z do y = x * y / z$
+L1:
+   t1=a3+15
+   if t1>10 goto L2 
+   goto L0
+L2:
+   if x2=7 goto L3 
+   goto L1
+L3:
+   if y<z goto L4 
+   goto L1
+L4:
+   t2=x*y
+   t3=t2/z
+   y=t3
+   goto L3
+
+The result is false!!
+/*******************第4次分析结束***********************/
+
+/*******************第5次分析开始***********************/
+
+源程序为
+
+while a+2 > 3 do a = a +1;$
+过滤之后的程序:
+while a+2 > 3 do a = a +1;$
+L1:
+   t1=a+2
+   if t1>3 goto L2 
+   goto L0
+L2:
+   t2=a+1
+   a=t2
+   goto L1
+
+L0:	
+
+The result is true!!!
+/*******************第5次分析结束***********************/
+
+/*******************第6次分析开始***********************/
+
+源程序为
+
+if s > b then c = c+9;$
+过滤之后的程序:
+if s > b then c = c+9;$
+L1:
+   if s>b goto L2 
+   goto L0
+L2:
+   t1=c+9
+   c=t1
+   goto L1
+
+L0:	
+
+The result is true!!!
+/*******************第6次分析结束***********************/
+
+/*******************第7次分析开始***********************/
+
+源程序为
+
+if a > b then while a+2 > 3 do a = a +1;$
+过滤之后的程序:
+if a > b then while a+2 > 3 do a = a +1;$
+L1:
+   if a>b goto L2 
+   goto L0
+L2:
+   t1=a+2
+   if t1>3 goto L3 
+   goto L0
+L3:
+   t2=a+1
+   a=t2
+   goto L2
+
+L0:	
+
+The result is true!!!
+/*******************第7次分析结束***********************/
+
+/*******************第8次分析开始***********************/
+
+源程序为
+
+if then then while a+2 > 3 do a = a +1;$
+过滤之后的程序:
+if then then while a+2 > 3 do a = a +1;$
+L1:
+
+The result is false!!
+/*******************第8次分析结束***********************/
+
+/*******************第9次分析开始***********************/
+
+源程序为
+
+if a = b then while a+2 > 3 do a+2 < 3;$
+过滤之后的程序:
+if a = b then while a+2 > 3 do a+2 < 3;$
+L1:
+   if a=b goto L2 
+   goto L0
+L2:
+   t1=a+2
+   if t1>3 goto L3 
+   goto L0
+L3:
+
+The result is false!!
+/*******************第9次分析结束***********************/
